@@ -1,0 +1,47 @@
+% empty lis - return empty lis
+stripNegativesAndZerosDuplicatePositives([], []).
+
+% lis <= 0 - onlly -ve or 0 - remove
+stripNegativesAndZerosDuplicatePositives([H|T], Result) :-
+    (H =< 0 ; H =:= 0),
+    stripNegativesAndZerosDuplicatePositives(T, Result).
+
+
+% check is +ve func
+% pos(X) :- X > 0.
+
+
+% only +ve - dupe (H,H)
+stripNegativesAndZerosDuplicatePositives([H|T], [H,H|Result]) :-
+   (H > 0), % otherwise you pos func
+    stripNegativesAndZerosDuplicatePositives(T, Result).
+
+
+
+
+% tests form spec
+tests :-
+    write('Testing stripNegativesAndZerosDuplicatePositives predicate:'), nl,
+    stripNegativesAndZerosDuplicatePositives([], X1),
+    write('testing with: ([], X) returns X = '), write(X1), nl,
+
+    stripNegativesAndZerosDuplicatePositives([0,-1,-2], X2),
+    write('testing with: ([0,-1,-2], X) returns X = '), write(X2), nl,
+
+    stripNegativesAndZerosDuplicatePositives([2, 3, 4], X3),
+    write('testing with: ([2, 3, 4], X) returns X = '), write(X3), nl,
+
+    stripNegativesAndZerosDuplicatePositives([0, 2,-3, 3, 4,-5], X4),
+    write('testing with: ([0, 2,-3, 3, 4,-5], X) returns X = '), write(X4), nl,
+
+    % own tests
+    stripNegativesAndZerosDuplicatePositives([0, 2,-3, 3, 4,-5, 7], X5),
+    write('testing with: ([0, 2,-3, 3, 4,-5, 7], X) returns X = '), write(X5), nl,
+
+    stripNegativesAndZerosDuplicatePositives([0, 2,-3, -3, -4,-5, -7], X6),
+    write('testing with: ([0, 2,-3, -3, -4,-5, -7], X) returns X = '), write(X6), nl.
+
+
+
+% run
+:- initialization(tests).

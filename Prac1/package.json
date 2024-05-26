@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "latex": "^0.0.1",
+    "pdflatex": "^0.0.1"
+  }
+}

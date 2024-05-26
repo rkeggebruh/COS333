@@ -1,0 +1,41 @@
+; Rachel Kegge - U20426586
+
+#lang racket
+
+; -----------------------------------------------------------------------------------------
+;                                       TASK 1 : Scheme
+; -----------------------------------------------------------------------------------------
+
+(display "Task 1")
+(newline)
+
+; func called stripNegativesDuplicateEvens - takes one param - simple lis
+(define (stripNegativesDuplicateEvens lis)
+  ; base case - empty list - return ()
+  (cond ((null? lis) '())
+        ; skip -ve no.s
+        ((< (car lis) 0) (stripNegativesDuplicateEvens (cdr lis)))
+        ; if even - duplicate
+        ((even? (car lis))
+         ; dupe
+         (cons (car lis) (cons (car lis) (stripNegativesDuplicateEvens (cdr lis)))))
+        ; if odd - DONT dupe - just leave in list
+        (else (cons (car lis) (stripNegativesDuplicateEvens (cdr lis))))))
+
+
+
+
+; tests from le spec
+(display (stripNegativesDuplicateEvens '()))                         ; should get()
+(newline)
+(display (stripNegativesDuplicateEvens '(-1 -2 -3)))                 ; should get()
+(newline)
+(display (stripNegativesDuplicateEvens '(1 2 -2 3 -3 4 5 -6)))       ; should get (1 2 2 3 4 4 5)
+(newline)
+
+(display (stripNegativesDuplicateEvens '(6 8)))                         ; should get()
+(newline)
+
+
+
+

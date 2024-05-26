@@ -1,0 +1,126 @@
+% Rachel Kegge - u20426586
+%
+% facts
+%
+% ------------------------ TASK 1 -------------------------
+% :- write('Task 1').
+
+married(peter, mary).
+married(lilly, joseph).
+ownsPet(peter, rover).
+ownsPet(mary, fluffy).
+ownsPet(joseph, tweety).
+ownsPet(lilly, fluffy).
+
+% rules
+household(X, Y) :-
+    married(X, Y).
+household(X, Y) :-
+    married(Y, X).
+
+householdPet(O1, O2, P) :-
+    ownsPet(O1, P),
+    household(O1, O2).
+householdPet(O1, O2, P) :-
+    ownsPet(O2, P),
+    household(O1, O2).
+
+wanderingPet(P) :-
+    ownsPet(X, P),
+    ownsPet(Y, P),
+    X \= Y.
+
+% testing
+:- initialization(test1).
+
+test1 :-
+    nl, write('---- Testing for task 1 ----'), nl,
+    nl, write('Married couples:'), nl,
+    married(X, Y),
+    format('~w is married to ~w.~n', [X, Y]),
+
+    nl, write('Households:'), nl,
+    household(X, Y),
+    format('~w and ~w are in a household.~n', [X, Y]),
+
+    nl, write('Household Pets:'), nl,
+    householdPet(O1, O2, P),
+    format('~w and ~w own a pet named ~w.~n', [O1, O2, P]),
+
+    nl, write('Wandering Pets:'), nl,
+    wanderingPet(P),
+    format('~w is a wandering pet.~n', [P]).
+
+
+% ------------------------ TASK 2 -------------------------
+%
+%
+% ?- nl.
+% :- nl, write('T2'), nl.
+
+
+% :- write('Task 2').
+% base case - list = null, sum = 0
+addPositives([], 0).
+
+addPositives([H|T], Sum) :-
+    H > 0,           % H +ve
+    !,
+    addPositives(T, RestSum),  % recurr call
+    Sum is H + RestSum.
+
+% if head <= 0 ignore and recurr rest
+addPositives([_|T], Sum) :-
+    addPositives(T, Sum).
+
+% ?- addPositives([], 0).
+
+
+% ?- addPositives([-1, -5, 0], _).
+
+
+% ?- addPositives([-1, 5, 0, 2, -5, 1], 8).
+
+:- initialization(test_t2).
+
+test_t2 :-
+    nl, write('---- Testing for task 2 ----'), nl,
+    addPositives([], X),
+    nl, write('addPositives([], X) returns X = '), write(X), nl,
+    addPositives([-1, -5, 0], Y),
+    write('addPositives([-1, -5, 0], Y) returns Y = '), write(Y), nl,
+    addPositives([-1, 5, 0, 2, -5, 1], Z),
+    write('addPositives([-1, 5, 0, 2, -5, 1], Z) returns Z = '), write(Z), nl.
+
+
+
+% ------------------------ TASK 3 -------------------------
+% base case - list = null, sum = 0
+getEverySecondValue([], []).
+
+% 2nd base case - just a head
+getEverySecondValue([_], []).
+
+% list
+getEverySecondValue([_,H|T1], [H|T2]) :-
+    % T1 \= [],
+    getEverySecondValue(T1, T2).
+
+
+
+:- initialization(test_seconds).
+
+test_seconds :-
+    nl, write('---- Testing for task 3 ----'), nl,
+    getEverySecondValue([], X),
+    nl,write('getEverySecondValue([], X) returns X = '), write(X), nl,
+    getEverySecondValue([a], Y),
+    write('getEverySecondValue([a], Y) returns Y = '), write(Y), nl,
+    getEverySecondValue([a, b, c, d, e], Z),
+    write('getEverySecondValue([a, b, c, d, e], Z) returns Z = '), write(Z), nl,
+    % own tes
+    getEverySecondValue([-1, 3, 2, -4, 3, 1, 4, 5], U),
+    write('getEverySecondValue([-1, 3, 2, -4, 3, 1, 4, 5], U) returns U = '), write(U), nl.
+
+
+

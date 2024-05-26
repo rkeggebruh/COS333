@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{bitstamp}
+Bitstamp~Learn Center.
+\newblock What is turing complete?, 2023.
+
+\bibitem{befunge}
+Esolangs Community.
+\newblock Befunge, Feb 2024.
+
+\bibitem{brainfuck}
+Esolangs Community.
+\newblock Brainf*ck, Feb 2024.
+
+\bibitem{esolangs}
+Esolangs Community.
+\newblock Esoteric programming language, 2024.
+
+\bibitem{geeksforgeeks-paradigms}
+Geeksforgeeks Community.
+\newblock Introduction of programming paradigms.
+\newblock {\em paradigms}, 2023.
+
+\bibitem{visual-logic}
+David.
+\newblock Visual logic.
+\newblock {\em Visual Logic}, 2022.
+
+\bibitem{dr-memory}
+dr~memory.
+\newblock Downloading dr. memory.
+\newblock {\em dr memory}, 2024.
+
+\bibitem{murrish2012latex}
+R.~Murrish.
+\newblock Latex is more powerful than you think - computing the fibonacci
+  numbers and turing completeness.
+\newblock {\em Overleaf, Online LaTeX Editor}, 2012.
+
+\bibitem{linuxsimply-bash}
+L.~Musharrat.
+\newblock Is bash a programming language? [quick analysis].
+\newblock {\em bash}, 2023.
+
+\end{thebibliography}

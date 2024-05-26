@@ -1,0 +1,77 @@
+%!PS
+
+%% ------------------------------------
+%   U20426586
+%   The program draws a circle of circles manually
+%% ------------------------------------
+
+%!PS
+% Set up the page size roughly for A4
+<< /PageSize [595 842] >> setpagedevice
+
+% Set color and font size for the text
+0 0 0 setrgbcolor
+/Courier findfont 10 scalefont setfont
+
+% center of the pg
+/W 2 def
+/H 2 def
+
+% circ rad
+/circle_radius 20 def
+
+% draw first circle - done manually
+200 450 translate
+newpath
+0 0 circle_radius 0 360 arc  % Draw circle
+closepath
+fill
+% 0 0 moveto
+% (1.1) show
+
+0 0 100 sub translate
+newpath
+0 0 circle_radius 0 360 arc  % Draw circle
+closepath
+stroke
+% 0 0 moveto
+% (1.2) show
+
+
+100 0 150 add translate
+newpath
+0 0 circle_radius 0 360 arc  % Draw circle
+closepath
+stroke
+% 0 0 moveto
+% (2.1) show
+
+0 0 200 sub translate
+newpath
+0 0 circle_radius 0 360 arc  % Draw circle
+closepath
+fill
+% 0 0 moveto
+% (2.2) show
+
+100 0 150 add translate
+newpath
+0 0 circle_radius 0 360 arc  % Draw circle
+closepath
+fill
+% 0 0 moveto
+% (3.1) show
+
+0 0 100 sub translate
+newpath
+0 0 circle_radius 0 360 arc  % Draw circle
+closepath
+stroke
+% 0 0 moveto
+% (3.2) show
+
+% Show the page
+showpage
+
+
+
